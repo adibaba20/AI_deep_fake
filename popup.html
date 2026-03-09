@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Image Classifier</title>
+    <style>
+        body { font-family: sans-serif; padding: 10px; width: 300px; }
+        input[type="file"], input[type="text"] { width: 100%; margin-bottom: 10px; box-sizing: border-box; }
+        button { width: 100%; padding: 8px; background-color: #4CAF50; color: white; border: none; cursor: pointer; margin-bottom: 5px; }
+        button:hover { background-color: #45a049; }
+        #result { margin-top: 15px; font-weight: bold; }
+        #imageList { max-height: 200px; overflow-y: auto; border: 1px solid #eee; padding: 5px; margin-top: 10px; }
+        #imageList img { max-width: 50px; max-height: 50px; margin: 2px; border: 1px solid #ddd; cursor: pointer; }
+        #imageList img.selected { border: 2px solid #007bff; }
+
+        /* New Drop Zone Styles */
+        #dropZone {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            cursor: grab; /* Indicate it's a drag target */
+        }
+        #dropZone.drag-over {
+            border-color: #007bff;
+            background-color: #e6f2ff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Image Real/Fake Classifier</h2>
+
+    <div id="dropZone">
+        Drag & Drop Image File Here
+    </div>
+
+    <hr> <label for="imageFile">Or Upload Image:</label>
+    <input type="file" id="imageFile" accept="image/*"><br>
+
+    <label for="imageURL">Or Enter Image URL:</label>
+    <input type="text" id="imageURL" placeholder="Paste image URL here"><br>
+
+    <button id="predictButton">Predict from Input</button>
+    <hr>
+    <button id="captureVisibleTabButton">Capture Visible Tab</button>
+    <button id="extractImagesButton">Extract Images from Page</button>
+
+    <div id="imageList">
+        <p>Click "Extract Images from Page" to see images here.</p>
+    </div>
+
+    <button id="predictSelectedImageButton" style="display: none;">Predict Selected Image</button>
+
+    <p id="result"></p>
+
+    <script src="popup.js"></script>
+</body>
+</html>
